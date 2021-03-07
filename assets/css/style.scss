@@ -1,6 +1,6 @@
 ---
 ---
 
-$tab-count: {{ site.tabs | size | plus: 1 }}
+$tab-count: {{ site.tabs | size | plus: 1 }};
 
 @import {{ site.theme }}
