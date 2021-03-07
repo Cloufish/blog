@@ -255,7 +255,8 @@ It works flawlessly.
 
 Okay so we're user rabbit, but we're still in the same directory as alice. When going to ```/home/rabbit/``` we see there's a SUID binary there!
 
-When executing it:
+When executing it:  
+
 ``` ./teaParty```
 ```
 Welcome to the tea party!
