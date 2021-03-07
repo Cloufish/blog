@@ -257,7 +257,7 @@ Okay so we're user rabbit, but we're still in the same directory as alice. When 
 
 When executing it:  
 
-``` ./teaParty```
+```./teaParty  ```
 ```
 Welcome to the tea party!
 The Mad Hatter will be here soon.
@@ -278,7 +278,7 @@ Okay so we see that there's one ```system()``` function that uses the ```date```
 
 But Linux system searches for the script to be executed with environment variable $PATH, let's echo it and see:
 
-```echo $PATH```
+```echo $PATH  ```
 ```
 /usr/local/sbin:
 /usr/local/bin:
