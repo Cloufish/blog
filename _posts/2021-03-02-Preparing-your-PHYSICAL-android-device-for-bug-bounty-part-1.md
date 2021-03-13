@@ -1,6 +1,6 @@
 ---
 title: Preparing your PHYSICAL Android device for Bug-Bounty Part 1
-date: 2020-03-02 06:46:00 +0100
+date: 2021-03-02 06:46:00 +0100
 categories: [Mobile Bug Bounty, Preparing Device]
 tags: [mobile bug bounty]
 lang: en
