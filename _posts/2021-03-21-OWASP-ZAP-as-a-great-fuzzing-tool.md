@@ -138,4 +138,9 @@ So we can see many cons with, some of them are:
 
 However if someone would dwell deep into ZAP scripting, then it could become a great alternative, that would replace Burp Suite Community Edition.
 
-## For beginners stuff, I think it suits my needs :)
+## UPDATE - A Great Extension to Burp Suite Community (Free) - Turbo Intruder
+
+You can also check out the [Turbo Intruder Extension](https://portswigger.net/research/turbo-intruder-embracing-the-billion-request-attack).   
+With it though, you also need to dwell deep into scripting - but these concepts are not that complicated, seriously!  
+
+This extension omits the time limit of fuzzing to a normal, even 20 request sent per second. I really recommend that also!
