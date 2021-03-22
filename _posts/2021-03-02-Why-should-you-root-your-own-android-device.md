@@ -13,18 +13,18 @@ It is essentially changing permissions that the app has when it comes to accessi
 
 ### Dalvik VMs
 
-![dalvik](https://imgur.com/coQAIcq.jpg)  
+![dalvik](https://imgur.com/coQAIcq.jpg)
 
-As you can see, every app has It's own 'Virtual Machine' (sandbox) which limits the Apps access to the filesystem.  
+As you can see, every app has It's own 'Virtual Machine' (sandbox) which limits the Apps access to the filesystem.
 App1 is only able to access the data from directory ```/data/../<application_name>```
 
-With rooted device however, the permissions are not enforced. Meaning that apps could gain access to other apps' data.  
+With rooted device however, the permissions are not enforced. Meaning that apps could gain access to other apps' data.
 
 Also, you can clearly see that system process also has its own VM, and so to access these system files we need to root our device.
 
 ## Why do we need to remove these permissions?
 
-Basically to gain bigger control over the device.  
+Basically to gain bigger control over the device.
 
 One might say that it's stupid to remove permissions, because after all we examine the impact of a vulnerability based on the default state, right? And it's true, in the end we'll be estimating impact based on the default setup, but **to examine the application's behavior more deeply, wee need full access.**
 Many pentesting-tools also require root access, because how would they access other app's data? How would they analyze It's actions dynamically?
@@ -32,7 +32,7 @@ Many pentesting-tools also require root access, because how would they access ot
 
 ## Alternatives to rooting your device
 
-With android debug bridge (```adb```) debugger you could gain root access to the applications data without the need of rooting your device. However, you wouldn't have access to every system file  
+With android debug bridge (```adb```) debugger you could gain root access to the applications data without the need of rooting your device. However, you wouldn't have access to every system file
 
 All you have to do is enabling adb debugging in Developer Options in your Android settings and that's it.
 
