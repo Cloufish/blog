@@ -13,7 +13,7 @@ It is essentially changing permissions that the app has when it comes to accessi
 
 ### Dalvik VMs
 
-![dalvik](https://lh3.googleusercontent.com/proxy/-c3Su29-eJcG9K3ZtIwTQUikXA-QjzsiTKEj1w8vzsl8lYK1jKrYPB8_6IaW_ujkvcpwC4WivwasN_H8rMTgKTOfGiufoOIQ8A0IKvGgk1sCOmhc4iFl9O8Wwc0TUjfxXnWaQ7mUwVe5)  
+![dalvik](https://imgur.com/coQAIcq.jpg)  
 
 As you can see, every app has It's own 'Virtual Machine' (sandbox) which limits the Apps access to the filesystem.  
 App1 is only able to access the data from directory ```/data/../<application_name>```
