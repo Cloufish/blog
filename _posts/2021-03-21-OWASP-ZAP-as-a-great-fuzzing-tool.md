@@ -1,6 +1,6 @@
 ---
 title: OWASP-ZAP is it a great alternative for Burp-Suite Intruder?
-date: 2020-03-21 06:46:00 +0100
+date: 2021-03-21 06:46:00 +0100
 categories: [Web Bug Bounty, Tools]
 tags: [fuzzing, owasp, zaproxy]
 lang: en
