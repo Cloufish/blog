@@ -1,5 +1,5 @@
 ---
-title: OWASP-ZAP is it a great alternative for Burp-Suite Intruder?
+title: OWASP-ZAP-Fuzzer is it a great alternative for Burp-Suite Intruder?
 date: 2021-03-21 06:46:00 +0100
 categories: [Web Bug Bounty, Tools]
 tags: [fuzzing, owasp, zaproxy]
