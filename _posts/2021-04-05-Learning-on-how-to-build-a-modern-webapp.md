@@ -25,7 +25,7 @@ I've recently decided that's it's a great idea to learn the 'basics' (from my pe
 
 ## What course did I choose?
 
-Basically that one -> [](https://www.youtube.com/watch?v=1tRLveSyNz8&pbjreload=101)
+Basically that one -> [MEAN CRASH COURSE](https://www.youtube.com/watch?v=1tRLveSyNz8&pbjreload=101)
 
 There're tremendous amounts of great courses like these. There's no need in spending money on courses and Bootcamp (if you don't want to be programmer)
 
