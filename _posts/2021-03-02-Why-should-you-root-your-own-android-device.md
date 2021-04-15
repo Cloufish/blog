@@ -1,6 +1,6 @@
 ---
 title: Why should you root your own android device?
-date: 2020-03-13 06:46:00 +0100
+date: 2021-03-13 06:46:00 +0100
 categories: [Mobile Bug Bounty, Preparing Device]
 tags: [mobile bug bounty]
 lang: en
