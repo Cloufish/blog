@@ -6,19 +6,19 @@ tags: [mean, stack, angularjs, nodejs, express, mongodb, programming]
 lang: en
 ---
 
-I've recently decided that's it's a great idea to learn the 'basics' (from my perspective) of modern WebApp development. This post won't be some kind of guide - just my thoughts :)
+I've recently decided that it is a great idea to learn the 'basics' (from my perspective) of modern WebApp development. This post won't be some kind of guide - just my thoughts :)
 
 ## Why learning WebApp Programming?
 
 ### from a Pentester's perspective
-- It helps you better understand the WebApp and thus you'll have more chance of catching some mistakes, bad practices (maybe)
+- It helps you better understand the WebApp, and thus you'll have more chance of catching some mistakes, bad practices (maybe)
 - In my opinion, it's way better to learn the relationships between Client and the Server Side (Even that there exists concept like that), and building security knowledge upon that, than to after months of confusion finally realize it, just with ctfs, bugbounty (This statement may be abstract for some people, though for a beginner it takes some time to acquire this knowledge only with ctfs, reading Security stuff)
 - It gives you basically a free, your own lab where you can test basic OWASP 10 Vulnerabilities. You can also see by that if these frameworks are secure by default or not
-- Learning JavaScript in my opinion can only be accomplished by doing WebApp projects. If you know them, then vulnerabilities that require code review/analysis (DOM Vulnerabilities for example) are open! 
+- Learning JavaScript in my opinion can only be accomplished by doing WebApp projects. If you know them, then vulnerabilities that require code review/analysis (DOM Vulnerabilities for example) are open!
 
 
 ### From a DevSecOps Perspective
-- Understanding on how to code gives you some insight on Developer's work. That there're many things to miss for him
+- Understanding on how to code gives you some insight on Developer's work. That there are many things to miss for him
 - If you gain this knowledge, you'll probably gain better ability of communicating with Developer Teams. After all AppSec culture is well-established through Security Team and Developers
 - Also you'll probably better evaluate on how to implement Security practices into developer's workflow
 - If You'd want to implement security by default (through creating wrappers around *potentially* unsafe libraries), you'll have to learn programming anyway. Understanding most popular web stacks and the one that your developers use is the first step to take!
@@ -34,8 +34,8 @@ This course was about building a WebApp on the MEAN Stack
 
 Noo... The terminology 'Stack' signalizes on what technologies the WebApp is built.
 
-For Example - the one that I made from the course is based on the **MEAN** Stack. Which stands for   
-( MongoDB, Express, AngularJS, NodeJS)
+For Example - the one that I made from the course is based on the **MEAN** Stack. Which stands for
+(MongoDB, Express, AngularJS, NodeJS)
 
 These technologies together create an excellent ecosystem for building a modern web-app
 

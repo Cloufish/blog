@@ -8,9 +8,9 @@ lang: en
 
 ## What is CI/CD pipeline?
 To put it simply, it is a pathway to deployment, in a fast way in respect with Agile manifesto.
-Every pull request on github should be checked in order to check if it's working accordingly and prepare it for production area
+Every pull request on GitHub should be checked in order to check if it's working accordingly and prepare it for production area.
 
-There're various CI/CD segments like managing deployment architecture, doing Jest tests, but to us - security people We should focus on:
+There are various CI/CD segments like managing deployment architecture, doing Jest tests, but to us - security people We should focus on:
 
 - Application automation security testing - **This one we'll cover today**
 - Automating Vulnerability Management
@@ -24,13 +24,13 @@ This will provide a straightforward step-by-step tutorial, also explaining every
 
 ### #1 Finding Vulnerable App on which we could build the ZAP tests!
 
-In the -> [Awesome DevSecOps](https://github.com/devsecops/awesome-devsecops#training) repository We can find a pretty good list of Vulnerable Test Targets.  
+In the -> [Awesome DevSecOps](https://github.com/devsecops/awesome-devsecops#training) repository We can find a pretty good list of Vulnerable Test Targets.
 I'll be choosing [NodeGoat](https://github.com/OWASP/NodeGoat). Let's **fork** it!
 
 After We've forked it, we **need** to enable Issues for this forked repo. This is as simple as checking the option in the Settings tab:
 ![issues](https://imgur.com/Zk58nHJ.png)
 
-This is necessary because ZAP output will be shown as a newly created issue. Without this options checked the ZAP just won't finish it's work 
+This is necessary because ZAP output will be shown as a newly created issue. Without these options checked the ZAP just won't finish its work.
 
 ### #2 Creating workflow.yml file
 The name 'workflow.yml' is given here as an example, it can be named whatever you want. However, it needs to be in ```.github/workflows``` directory
@@ -52,7 +52,7 @@ jobs:
   test:
     name: OWASP ZAP SCANS
     runs-on: ubuntu-latest
-    
+
     steps:
        - uses: actions/checkout@v2
          with:
@@ -62,7 +62,7 @@ jobs:
        - name: Launching the app
          run: docker-compose up --detach
 ```
-This would launch the app.  
+This would launch the app.
 The ```- uses: actions/checkout@v2``` line gives us the access to the source code, it's like locally running git clone (though it's probably more complicated than that).
 
 ### #3 Integrating ZAP tests
@@ -81,7 +81,7 @@ OWASP ZAP Baseline Scan however is ideal for CI/CD pipeline. It's fast and won't
 
 We need to copy this snippet into our workflow file.
 
-Then, you'll probably need to fix the indentation - The Yaml format is very strict on these, and also Github has some other conventions.
+Then, you'll probably need to fix the indentation - The ```.yaml``` format is very strict on these, and also GitHub has some other conventions.
 
 Defining the values of these parameters are pretty straightforward - you just have to write it after the colon sign
 
@@ -89,7 +89,7 @@ I think that every parameter is easy to understand. The one that might cause a p
 You just need to provide it a value of ```${{ secrets.GITHUB_TOKEN }}``` so it'll be something like this -> ```token: ${{ secrets.GITHUB_TOKEN }}```
 The ```target: ``` should be pointing to a localhost:4000 - The port set in the Dockerfile.
 
-The workflow file that I've came around was:
+The workflow file that I've come around was:
 
 ```yml
 
@@ -100,7 +100,7 @@ jobs:
   test:
     name: OWASP ZAP SCANS
     runs-on: ubuntu-latest
-    
+
     steps:
        - uses: actions/checkout@v2
          with:
@@ -109,7 +109,7 @@ jobs:
          run: docker-compose build
        - name: Launching the app
          run: docker-compose up --detach
-         
+
        - name: OWASP ZAP
          uses: zaproxy/action-baseline@v0.4.0
          with:
@@ -120,12 +120,12 @@ jobs:
            issue_title: Security Tests
 
 ```
-And that's basically it. The new issue will be created: 
+And that's basically it. The new issue will be created:
 ![issues2](https://imgur.com/rBENnhL.png)
 
 However there are caveats:
 
 ## Caveats
-- The ZAP scan **will not replace** the human eye. You **should** examine every one of these issues, and If It relates to your application! There's no reason to point out the non-existance of a Header mitigating Clickjacking, if there's no forms to submit
-- This also will mostly remove only the long-hanging fruits. You should still  hire a Pentester, create Bug Bounty Program to search for more severe (once you eliminate these long-hanging ones)
+- The ZAP scan **will not replace** the human eye. You **should** examine every one of these issues, and If It relates to your application! There's no reason to point out the nonexistence of a Header mitigating Clickjacking, if there are no forms to submit
+- This also will mostly remove only the long-hanging fruits. You should still hire a Pentester, create Bug Bounty Program to search for more severe (once you eliminate these long-hanging ones)
 - The use of ```rules_file_name:``` is highly advisable to remove those fail-positives I was writing about in the previous points.

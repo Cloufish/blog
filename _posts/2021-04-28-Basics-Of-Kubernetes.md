@@ -9,21 +9,21 @@ lang: en
 # Intro:
 ## What I want you to know already:
 - What are containers - I recommend this course -> [freeCodeCamp Docker](https://www.youtube.com/watch?v=fqMOX6JJhGo)
-- How to create them in Dockerfiles, for that I recommendblackarch-zsh [blog-post](https://cloufish.github.io/blog/posts/creating-your-own-docker-pentesting-container/) where I explain how I created blackarch-zsh container.
+- How to create them in Dockerfiles, for that I recommend blackarch-zsh [blog-post](https://cloufish.github.io/blog/posts/creating-your-own-docker-pentesting-container/) where I explain how I created blackarch-zsh container.
 
 ## What is Kubernetes?
 It's a way of orchestrating containers...
 - It's made by Google
 - While being still open-source project
-- Stable and mature, even though one of it's first version was back in 2015!
+- Stable and mature, even though one of its first version was back in 2015!
 - It's shortened name is K8s - pronuncation of this is "Keights" (I know this may not be accurate pronuncation to interpret)
 
 ## Why we use it:
 - To manage containers and microservices of course,
-- But also it doesn't require developer to know what hardware he want to use
+- But also it doesn't require developer to know what hardware he wants to use
 
 ## Explaining the Jargon:
-- **monolith** - a massive application with all of the code and elements bundled into one environment
+- **monolith** - a massive application with all the code and elements bundled into one environment
 
 ![monolith](https://imgur.com/Om67W4j.png)
 - Microservice App - when all these elements from monolith app are divided into little micro-services
@@ -35,14 +35,14 @@ It's a way of orchestrating containers...
 The **Pros** of Microservices are:
 - They can be scaled more independently
 - Also developed, patched, updated independently
-- It can be run anywhere 
+- It can be run anywhere
 
 **Cons**:
 - It can be complex!
 
 # Kubernetes Architecture
 
-## K8s cluster 
+## K8s cluster
 Is a place where we store all of our **nodes** and **Master Control Plane**/**Kubernetes Mater**
 
 On these nodes many **Pods** run
@@ -67,10 +67,10 @@ I know it does sound complicated, but hang on! As you read this blog-post, write
 
 1. Refers to containerizing our app - Make it run as the container
 2. Then we wrap that into a **Pod** (it's needed by Kubernetes!)
-3. We also need to wrap it into **deployment** controller - If we want it to be scalable
+3. We also need to wrap it into **deployment** controller - If we want it to be scalable.
 
 4. We perform all these steps in a **file**!
-5. We then transfer this configuration file to the Kubernetes **Master** and then it handles the situation by himself. 
+5. We then transfer this configuration file to the Kubernetes **Master**, and then it handles the situation by himself.
 
 ## Masters / Control Plane
 - Brain of the cluster
@@ -85,7 +85,7 @@ Every Master runs on **a separate Linux environment**
 
 Every master runs every **master-component**
 
-**Hosted K8s Control Plane** 
+**Hosted K8s Control Plane**
 - in Cloud-Hosted Masters are hidden from you
 - Cloud-Provider run your Control Plane **as a service** and you can interact with it with API endpoint
 
@@ -99,10 +99,10 @@ Every master runs every **master-component**
 - Persists cluster state and config
 - Based on etcd
 - With that Performance is critical
-- You should have backups  of these Cluster store and regularly test them
+- You should have backups of these Cluster store and regularly test them
 
 **Kube-controller-manager**
-- Controller of other controllers like: 
+- Controller of other controllers like:
   1. Node controller
   1. Deployment controller
   1. Endpoints controller
@@ -130,10 +130,10 @@ Every master runs every **master-component**
 - Reports back to Masters
 
 **container-runtime**
-- Pluggable: COntainer Runtime Interface (CRI)
-  - Docker (getting deprecated), 
-  - containerd, 
-  - CRI-O, 
+- Pluggable: Container Runtime Interface (CRI)
+  - Docker (getting deprecated),
+  - containerd,
+  - CRI-O,
   - Kata
 - Low-level container intelligence
 
@@ -148,16 +148,16 @@ Every master runs every **master-component**
 ## Declarative way of configuring Kubernetes
 - In configuration file, we only **declare** **what we want** the Kubernetes to 'look like'. In Declarative way we don't care on how to achieve everything, this is handled by the Kubernetes itself!
 
-If we would declare that...:
+If we declared that...:
 - We always want 3 instances of Front-End Pod running
-But when one of these Pods are taken down, the desired state vs observed state is different! When that happens, Kubernetes bring up the new Pod or even a Node
+But when one of these Pods are taken down, the desired state vs observed state is different! When that happens, Kubernetes brings up the new Pod or even a Node.
 
 ## Pods
 
-It consists of containers (e.g Docker ones).
+It consists of containers (e.g. Docker ones).
 For containers to be orchestrated - **They must be in a Pod!**
 
-The more accurate **definition of Pods** is that they're shared execution environment for containers to run on  
+The more accurate **definition of Pods** is that they're shared execution environment for containers to run on
 All containers in the same Pod share the same resources
 
 It's mostly preferred though to run only one container in single Node, because usually there's no need of sharing resources
@@ -170,7 +170,7 @@ However, there is a use case of running multi-container Pods, such as:
 Like we said earlier, **Pods do not offer Scalability** by default for them to be scalable, they must be wrapped into a **Deployment** controller, but Pods themselves provide nice meta-data for Kubernetes to work with!
 ## Networking with Kubernetes Services
 
-When a new Pods are re-deployed (e.g after it dies) or after scaling up, or even updating They got assigned a new IP Address, which can be **problematic from Networking** Administrator's perspective
+When new Pods are re-deployed (e.g. after it dies) or after scaling up, or even updating They got assigned a new IP Address, which can be **problematic from Networking** Administrator's perspective
 
 When We want to make Networking in Kubernetes easier we can spin up **Service Object**. It sits in front of the Pods and provide them a stable IP and DNS names and it Load-Balances them.
 It handles Networking partially for us.
@@ -181,8 +181,8 @@ It handles Networking partially for us.
 - prod/dev label
 - back-end / front-end
 
-We can then connect these Labels with our Networking Service Object,  
-Then send a declarative 'command'/request that 'I want all 1.3 Pods to be updated into 1.4 version and to label them as 1.4` - Ta-daa!  
+We can then connect these Labels with our Networking Service Object,
+Then send a declarative 'command'/request that 'I want all 1.3 Pods to be updated into 1.4 version and to label them as 1.4` - Ta-daa!
 And also, If We want to **get rid of the 1.3 versions** to be managed, then we only need to do one thing... **Delete the label '1.3' from the Network Service Object**.
 And then these Pods won't get **any** traffic!
 

@@ -12,15 +12,15 @@ Burp Suite offers a tremendous scope of functionalities in one his app implement
 
 ## The question should be - What functionalities of Burp Suite Professional can I have for free?
 
-I got this idea for a new Hacksplained's video called [Burp Suite Professional Features For Free (Pimp your Community Edition)](https://www.youtube.com/watch?v=FMGa6xBzNck)  
+I got this idea for a new Hacksplained's video called [Burp Suite Professional Features For Free (Pimp your Community Edition)](https://www.youtube.com/watch?v=FMGa6xBzNck)
 
 It is really awesome, I really recommend you checking it out!
 
-But I realized something... that he didn't limit himself only to using Burp Extensions, but he used functionalities outside of the Burp Suite program - that might be obvious to some of you, did you really thought that there's a free version/alternative of Burp Collaborator other than hosting your own OOB(Out of Band) server? I did not! 
+But I realized something... that he didn't limit himself only to using Burp Extensions, but he used functionalities outside the Burp Suite program - that might be obvious to some of you, did you really think that there's a free version/alternative of Burp Collaborator other than hosting your own OOB(Out of Band) server? I did not!
 
-These all external functionalities that he has shown, could also be used to **PIMP THE OWASP ZAP TO WORK AS BURP SUITE PRO**  
+These all external functionalities that he has shown, could also be used to **PIMP THE OWASP ZAP TO WORK AS BURP SUITE PRO**
 
-It is to be honest the same scenario. Because OWASP ZAP offers a free Web-Vulnerabilities-Scanner that in Burp Suite cannot get acquired for free but is also extremely handy!  
+It is to be honest the same scenario. Because OWASP ZAP offers a free Web-Vulnerabilities-Scanner that in Burp Suite cannot get acquired for free but is also extremely handy!
 
 ## So let's analyze this video bit by bit, but in OWASP ZAP's case
 
@@ -40,11 +40,11 @@ Just as it was mentioned in Hacksplained's video
 
 Again, just as was mentioned in the video, we can use [RequestBin](https://requestbin.net/)
 
-### Burp Intruder for ZAP 
+### Burp Intruder for ZAP
 
 I've covered the topic of Fuzzing in OWASP ZAP [On My Other Blogpost](https://cloufish.github.io/blog/posts/OWASP-ZAP-as-a-great-fuzzing-tool/).
 
-The final conclusion that I pointed there is that we need to use ZAP's fuzzing [scripts](https://github.com/zaproxy/community-scripts/tree/master/httpfuzzerprocessor), so it's the same case as in Turbo Intruder.  
+The final conclusion that I pointed there is that we need to use ZAP's fuzzing [scripts](https://github.com/zaproxy/community-scripts/tree/master/httpfuzzerprocessor), so it's the same case as in Turbo Intruder.
 
 So this section is I think a win for Burp Suite Pro, because nonetheless you would have to learn Python/JS scripting to use it for free.
 
@@ -60,8 +60,8 @@ ZAP scanner provides a good insight of how requests are constructed, what header
 
 ## Summary
 
-There are many functionalities that OWASP ZAP provides, e.g [HUD](https://www.youtube.com/watch?v=7WL-emt5PDc) (That's extremely awesome function!) and [Report Generator](https://www.youtube.com/watch?v=kD540gUWJ3I) which (I think) are not in Burp Suite
+There are many functionalities that OWASP ZAP provides, e.g. [HUD](https://www.youtube.com/watch?v=7WL-emt5PDc) (That's extremely awesome function!) and [Report Generator](https://www.youtube.com/watch?v=kD540gUWJ3I) which (I think) are not in Burp Suite
 
-But there're probably other functions of Burp Suite that are not included in ZAProxy! And that's fine! 
+But there are probably other functions of Burp Suite that are not included in ZAProxy! And that's fine!
 
 I prefer though to use OWASP ZAP and to complement the lacking functionalities of it with the things mentioned in Hacksplained's video!

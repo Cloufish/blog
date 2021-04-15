@@ -6,10 +6,10 @@ tags: [devsecops, monitoring]
 lang: en
 ---
 
-## Intro 
+## Intro
 Security Breaches happen, and also you should be prepared for them to happen, expect them! With this mindset you can minimize the impact of the breach.
 
-With **logging** we can be better prepared for the breach. I'll explain this topic more deeply in this post :)
+With **logging,** we can be better prepared for the breach. I'll explain this topic more deeply in this post :)
 
 Also let's remember that Insufficient Logging & Monitoring **is in OWASP 2017 TOP 10!**
 
@@ -23,32 +23,32 @@ Also let's remember that Insufficient Logging & Monitoring **is in OWASP 2017 TO
 
 ## Attack scenario chain where logging is crucial
 1. Any type of brute-force attacks like **Credential Stuffing** - we could detect and prevent that during the attack.
-1. When the attacker gets a foothold in e.g internal network administrator panel and tries to learn about company's infractructure - We could also detect this with logging
+1. When the attacker gets a foothold in e.g. internal network administrator panel and tries to learn about company's infrastructure - We could also detect this with logging
 1. When the attacker performs Data Exfiltration, we could detect these big data transfers and also stop them
 1. But **without any logging** and monitoring the defenders will learn about the **incident after the attacker requests a ransom!**
 
-With logging we could:
+With logging, we could:
 1. Detect the intrusion
 1. Prevent worse from happening
 
 ## Insufficient Logging and Monitoring is...
-- **Lack of Quantity** of logging events
+- **Lack of Quantity** of logging events.
 
 After that We've increased the Quantity we can focus more **about Quality** of these logs. For example add a timestamp.
 
 ## Other issues with Logging and Monitoring:
-- Lack of Availability - When we can't access the logs 
-- No Alerting Thresholds - When even with the sufficient logs we don't get any alerts and we can't have timely response.
+- Lack of Availability - When we can't access the logs
+- No Alerting Thresholds - When even with the sufficient logs we don't get any alerts, and we can't have timely response.
 
 ## The process of Logging, Monitoring, Alerting.
 
 To have the process completed, we need to have all these 3 elements (Infinity Stones!)
-1. Logging 
+1. Logging
  - **What** event happened?
  - **When** the event happened?
  - **Where** the event happened?
  - **Who** performed the event?
-2. Monitoring 
+2. Monitoring
 - which you can achieve only with proper logging
 - Providing timely detections
 3. Alerting - Actively informing someone about the event that is peculiar.
@@ -70,7 +70,7 @@ If We refer to SDLC life-cycle ideally we should consider what to log in
 - Defining Requirements phase
 - Designing phase
 
-However **enabling monitoring, tweaking it and configuring logging** is done in **Deployment phase**
+However, **enabling monitoring, tweaking it and configuring logging** is done in **Deployment phase**
 
 ## Improving the Quality of the Logged Data
 
@@ -84,17 +84,17 @@ However **enabling monitoring, tweaking it and configuring logging** is done in 
  - When the log entry was generated on the application side
  - When the log server received this log
 All of that with **synchronized time sources!**
-- Take timezones into consideration also. (Standard RFC 3339)
+- Take time zones into consideration also. (Standard RFC 3339)
  3. **Where** the event happened?
  - Log source address - responsible for logging the entry
  - Originating address - Responsible for generating the event
  4. **Who** performed the event?
-- Logged on user /  Unique Indentifier
+- Logged on user / Unique Identifier
 
 **Log standards**:
 - Syslog - Standard RFC 5424
-- **Common Log Format** 
-- Use a company standard, when available - This would simplify and integrate with the existing logging functionality 
+- **Common Log Format**
+- Use a company standard, when available - This would simplify and integrate with the existing logging functionality
 
 ### Syslog Severity Events
 Many Log Standards also log severity as metadata - how serious is the event:
@@ -116,7 +116,7 @@ Often refers to replacing the UUID with the random value. To achieve this result
 
 **Encryption** - is what it's normally stands for - converting personal data to encrypted format. This though requires the Encryption Key and managing these secrets also is troublesome. If we would revoke the secret then all of the backed up logs would become useless. Decryption of these logs will also affect the performance.
 
-**Pseudonymization** - Replecing personal data with an artificial identifier (pseudonym), requires Link table that would link the pseudonym to original data
+**Pseudonymization** - Replacing personal data with an artificial identifier (pseudonym), requires Link table that would link the pseudonym to original data
 
 ## Log Management
 
@@ -127,9 +127,9 @@ Often refers to replacing the UUID with the random value. To achieve this result
 1. Analyzing
 1. Archiving
 
-**Aggregation** - Means to: 
-- remove duplicate events (very rare in WebApps), 
-- Add structure, 
+**Aggregation** - Means to:
+- remove duplicate events (very rare in WebApps),
+- Add structure,
 - Remove Sensitive Fields if these weren't remove in previous stages.
 - Add Input Validation, Encoding, White-Listing/Black-Listing - Because there's still an option for an attacker to perform **Log Poisoning**
 
@@ -140,7 +140,7 @@ Often refers to replacing the UUID with the random value. To achieve this result
 - Escalation, Response, Alerting
 
 **Archiving**
-- Moving data from hard storage to backup media.
+- Moving data from hard storage to back up media.
 - Preserving Decryption keys if it's needed
 - Securing Log Data
 
@@ -161,4 +161,4 @@ Often refers to replacing the UUID with the random value. To achieve this result
 - Observe alerts
 - Check quantity and quality of the logs
 - Validate procedures (Check if these are false alerts)
-- Recheck configuration
+- Recheck configuration.
