@@ -18,7 +18,7 @@ Let's consider these reasons from the employer's perspective:
 
 ### Just having your internet corner will also be convenient for you
 
-You're doing a collection of your reflections on various topics. You have a chance to talk yourself out in your corner. You build your archive of what you have been doing, where you have gone. This sometimes has a different end because you may feel depressed by your laziness, but that's okay! This will lead to motivation.
+You're doing a collection of your reflections on various topics. You have a chance to talk yourself out in your corner. Not only that, but you build your archive of what you have been doing, where you have gone. This sometimes has a different end because you may feel depressed by your laziness, but that's okay! This will lead to motivation.
 
   You will also improve your **writing skills**.
   > I think I'm not great at it, but I will get into practice :)
@@ -26,5 +26,5 @@ You're doing a collection of your reflections on various topics. You have a chan
 ### Don't think you are not a knowledgeable person. This is absurd!
 Because the truth is, there will always be someone who knows less than you. Someone who has 3 *weeks* of experience on a broader topic while you have 3* months* of experience behind you. *
 
-### Creating a blog is not that difficult and It does not risk being hacked
+### Creating a blog is not that difficult, and It does not risk being hacked
 Maybe these conclusions sound like a hat, but the excuses are different. There are technologies like **Static Site Generators**. Which works extra *out of the box*. Their field of attack (scope) is also low due to the lack of databases. I will leave further considerations on the benefits of generators for later posts.

@@ -114,7 +114,7 @@ Often refers to replacing the UUID with the random value. To achieve this result
 - Encrypt the Data
 - Pseudonymization
 
-**Encryption** - is what it's normally stands for - converting personal data to encrypted format. This though requires the Encryption Key and managing these secrets also is troublesome. If we would revoke the secret then all of the backed up logs would become useless. Decryption of these logs will also affect the performance.
+**Encryption** - is what it's normally stands for - converting personal data to encrypted format. This though requires the Encryption Key and managing these secrets also is troublesome. If we revoked the secret then all the backed up logs would become useless. Decryption of these logs will also affect the performance.
 
 **Pseudonymization** - Replacing personal data with an artificial identifier (pseudonym), requires Link table that would link the pseudonym to original data
 

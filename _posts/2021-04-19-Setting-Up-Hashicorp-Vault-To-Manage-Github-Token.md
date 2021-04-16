@@ -128,7 +128,7 @@ Also, I want to add secret called **email**. Now, many of you might argue if it'
 
 ```vault kv put secret/email key=<YOUR_TOKEN_HERE>```
 ## #6 Logging in and testing these policies!
-Now let's login with:
+Now lets login with:
 ```vault login -method=userpass --username=<YOUR_CHOSEN_USERNAME>```
 
 Now - **the important part** is to overwrite our VAULT_TOKEN variable with the user token.
@@ -143,7 +143,7 @@ If you've done everything correctly then you've got the Hashicorp Vault set-up!
 Now that we've seen the process of configuration, let's begin to work with non-dev Hashicorp's vault environment, there are several reasons to do that:
 - The Dev environment runs in 'unsealed' state by default - This essentially means that all the secrets are decrypted at
 the start of the vault.
-- Dev environment also runs with storage in-memory. Meaning that it offers no persistence to the secrets We're storing.All data is lost when Vault or the machine on which it is running is restarted.
+- Dev environment also runs with storage in-memory. Meaning that it offers no persistence to the secrets We're storing. All data is lost when Vault or the machine on which it is running is restarted.
 
 The whole process is explained in Hashicorp Vault's Docs about [Deploying](https://learn.hashicorp.com/tutorials/vault/getting-started-deploy)
 ### 1. Writing config.hcl
@@ -164,7 +164,7 @@ api_addr = "http://127.0.0.1:8200"
 ui = true
 
 ```
-I'm using filesystem storage backend with
+I'm using file system storage backend with
 ```json
 storage "file" {
   path    = "/mnt/vault/data"
@@ -231,7 +231,7 @@ vault login -method=userpass username="${YOUR_CHOSEN_USERNAME}"
 ```
 After the execution of the script, ```export VAULT_TOKEN=<YOUR_USERNAME_TOKEN>``` and test it.
 
-After testing remove the script completely (don't forget the trash directory) or delete the hardcoded credentials
+After testing remove the script completely (don't forget the trash directory) or delete the hard-coded credentials
 
 ## Integrating it with a bash alias:
 
@@ -280,7 +280,7 @@ We want to replace the existing ```/etc/vault.hcl``` file with our config. with
     ```systemctl status vault```. If it didn't, then check the logs with:
     ```sudo journalctl -u vault.service```
 
-Also let's add automatically export the ```$VAULT_ADDR``` variable. We could do that in .bashrc, .bash_profile or just like the author of the post did, place a bash script here ->```/etc/profile.d/vault.sh``` with the contents of:
+Also let's add automatically export the ```$VAULT_ADDR``` variable. We could do that in ```.bashrc```, ```.bash_profile``` or just like the author of the post did, place a bash script here ->```/etc/profile.d/vault.sh``` with the contents of:
 ```bash
 #!/bin/bash
 export VAULT_ADDR='http://127.0.0.1:8200'
@@ -309,6 +309,6 @@ git config --global credential.helper 'cache --timeout 14400'
 
 ## Caveats:
 
-- We've used a default secrets path called ```secret/github```. I've done that because I don't see (yet!) another use-case of Hashicorp Vault on my daily basis workflow. However If I had to manage more secrets and more API keys I would probably in some way diverse these into different categories. You can do that also.
+- We've used a default secrets path called ```secret/github```. I've done that because I don't see (yet!) another use-case of Hashicorp Vault on my daily basis workflow. However, If I had to manage more secrets and more API keys I would probably in some way diverse these into different categories. You can do that also.
 
-**That's it!** It was seriously a long struggle for me, I personally encountered many issues with setting this up, and though It may not be perfect having vault implemented feels so satisfying! I hope you've also learned something and because that scenario is meant to run only locally maybe you'll do the setup yourself :) Cheers
+**That's it!** It was seriously a long struggle for me, I personally encountered many issues with setting this up, and though It may not be perfect having vault implemented feels so satisfying! I hope you've also learned something and because that scenario is meant to run only locally maybe you'll do the setup yourself :) Cheers.

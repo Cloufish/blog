@@ -41,12 +41,12 @@ These technologies together create an excellent ecosystem for building a modern 
 
 ## My WebApp Developing Background:
 
-Basically none. In highschool I was creating a lot of projects with php code that would add a new row/data into MySQL database, also some Javascript to change the color of the buttons, css and html.
+Basically none. In high school I was creating a lot of projects with PHP code that would add a new row/data into MySQL database, also some JavaScript to change the color of the buttons, CSS and HTML.
 
 ## My impression/obstacles
 
-It's so amazing to see how modern frameworks work. In this video many of stuff that was written was in typescript instead of javascript.
-Adding new elements to the Posts object is so abstract to me! Also ```@Output()``` and ```@Input()``` function.
+It's so amazing to see how modern frameworks work. In this video many of stuff that was written was in typescript instead of JavaScript.
+Adding new elements to the Posts object is so abstract to me! Also, ```@Output()``` and ```@Input()``` function.
 calls seem peculiar!.
 
 

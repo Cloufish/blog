@@ -18,9 +18,9 @@ There are various CI/CD segments like managing deployment architecture, doing Je
 - Monitoring and collecting data - Without this data, automation is way harder
 
 ## Integrating ZAP Action into CI pipeline:
-This will provide a straightforward step-by-step tutorial, also explaining every bit of code, feel free to comment if there're any other things you don't understand!
+This will provide a straightforward step-by-step tutorial, also explaining every bit of code, feel free to comment if there are any other things you don't understand!
 
-> **IMPORTANT** - Although It won't cover every basic on Github Actions, to get familiar with the basics I recommend this [Github's interactive lab](https://lab.github.com/githubtraining/github-actions:-continuous-integration)
+> **IMPORTANT** - Although It won't cover every basic on Github Actions, to get familiar with the basics I recommend this [GitHub's interactive lab](https://lab.github.com/githubtraining/github-actions:-continuous-integration)
 
 ### #1 Finding Vulnerable App on which we could build the ZAP tests!
 
@@ -37,7 +37,7 @@ The name 'workflow.yml' is given here as an example, it can be named whatever yo
 
 ### #3 Building the Application in a local environment
 
-Because ZAP tests run on a **live** target, we need to first run the app in the local github environment. This can be done using ```docker-compose``` with ```--detached``` flag, and of course for that we need Dockerfile.
+Because ZAP tests run on a **live** target, we need to first run the app in the local GitHub environment. This can be done using ```docker-compose``` with ```--detached``` flag, and of course for that we need Dockerfile.
 
 Fortunately for us - this repo also gives us a Dockerfile and docker-compose.yml file in the projects directory.
 
@@ -71,7 +71,7 @@ We'll do that by adding the next action.
 
 When editing the workflow file you may have noticed that you have a 'Marketplace' on the right side. We'll use it now and search for *'ZAP'*, we'll get 2 results that:
 1. OWASP ZAP Full Scan
-2. OWASP ZAP Baseline Scan
+2. OWASP ZAP Baseline Scan.
 
 The first one is more time-consuming scan, however it covers much bigger scope, and it's an active scan. I think that It should be run only 1 times in week or even less.
 
@@ -86,7 +86,7 @@ Then, you'll probably need to fix the indentation - The ```.yaml``` format is ve
 Defining the values of these parameters are pretty straightforward - you just have to write it after the colon sign
 
 I think that every parameter is easy to understand. The one that might cause a problem is ```token: ```.
-You just need to provide it a value of ```${{ secrets.GITHUB_TOKEN }}``` so it'll be something like this -> ```token: ${{ secrets.GITHUB_TOKEN }}```
+You just need to provide it a value of ```${{ secrets.GITHUB_TOKEN }}```, so it'll be something like this -> ```token: ${{ secrets.GITHUB_TOKEN }}```
 The ```target: ``` should be pointing to a localhost:4000 - The port set in the Dockerfile.
 
 The workflow file that I've come around was:
@@ -123,7 +123,7 @@ jobs:
 And that's basically it. The new issue will be created:
 ![issues2](https://imgur.com/rBENnhL.png)
 
-However there are caveats:
+However, there are caveats:
 
 ## Caveats
 - The ZAP scan **will not replace** the human eye. You **should** examine every one of these issues, and If It relates to your application! There's no reason to point out the nonexistence of a Header mitigating Clickjacking, if there are no forms to submit

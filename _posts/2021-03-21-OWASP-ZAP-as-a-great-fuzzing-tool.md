@@ -12,7 +12,7 @@ lang: en
 - hydra
 
 ## One of the biggest problems with fuzzing...
-Is that for a beginner - it's not that easy to predefine input fields to fuzz. This often results in constructing a massive command like this:  
+Is that for a beginner - it's not that easy to predefine input fields to fuzz. This often results in constructing a massive command like this:
 
 ```sudo hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.10.10.43 http-post-form "/department/login.php:username=admin&password=^PASS^:Invalid Password!"```
 
@@ -24,15 +24,15 @@ This kind of fuzzing is not intuitive **for a beginner** (though great for autom
 
 You're probably familiar with the first one - Burp Suite Intruder. It provides an easy way of selecting inputs to fuzz just like on this picture:
 
-![image](https://portswigger.net/burp/documentation/desktop/images/intruder-enumerating-positions-940.png)  
+![image](https://portswigger.net/burp/documentation/desktop/images/intruder-enumerating-positions-940.png)
 
-The biggest con of this is that it rate-limits all the fuzzing to the slowest way possible - **if you're not using Professional Edition**  
+The biggest con of this is that it rate-limits all the fuzzing to the slowest way possible - **if you're not using Professional Edition**
 
 ## A great alternative
-Hold your seats though, because there's a great alternative for Burp Suite Intruder - OWASP ZAProxy Fuzzer.  
+Hold your seats though, because there's a great alternative for Burp Suite Intruder - OWASP ZAProxy Fuzzer.
 Which essentially has the same features as the Burp Suite Intruder. But because It's **open-source**, **it is also free**
 
-## Let's see it in actions 
+## Let's see it in actions
 - We'll be testing it on PortSwigger Authentication Academy (Yes, I know...)
 - **Do it with me, please :)**
 
@@ -46,10 +46,10 @@ We also get the lists that we can use to brute-force these forms:
 
 ![lists](https://imgur.com/vFcOttN.jpg)
 
-Let's access the lab, this won't be a walkthrough focused blog post, it'll be mostly about using zaproxy fuzzer. 
+Let's access the lab, this won't be a walkthrough focused blog post, it'll be mostly about using zaproxy fuzzer.
 
 
-Let's open zaproxy, then insert lab's url into URL to explore field and let's start exploring the app on the browser!
+Let's open ZAProxy, then insert lab's URL into URL to explore field and let's start exploring the app on the browser!
 
 ![zaproxy-ui](https://imgur.com/DIdjAAH.jpg)
 
@@ -57,16 +57,16 @@ And go to login page, set a breakpoint just like in 1st step and do other steps 
 
 ![login](https://imgur.com/JBhp9uI.jpg)
 
-Then you can see that in the zaproxy ui you have a request exactly on the POST form request  
+Then you can see that in the zaproxy ui you have a request exactly on the POST form request
 
 Right-click on the request, and select the option ```Fuzz```, then this window will appear
-![request](https://imgur.com/Y2rs8Uz.jpg)  
+![request](https://imgur.com/Y2rs8Uz.jpg)
 
-If you're familiar with Burp Suite Intruder then you'll probably get comfortable to this interface.  
+If you're familiar with Burp Suite Intruder then you'll probably get comfortable to this interface.
 
-You're able to add fuzzing placeholders just like in Burp, and add payloads, which soon you'll see are configured exactly as in Burp.  
+You're able to add fuzzing placeholders just like in Burp, and add payloads, which soon you'll see are configured exactly as in Burp.
 
-Highlight the username **value** text (test). When you click 'Add' the new Window to configure Payload/Wordlist will appear. You can tweak with that on your own, there're many interesting options!  
+Highlight the username **value** text (test). When you click 'Add' the new Window to configure Payload/Wordlist will appear. You can tweak with that on your own, there're many interesting options!
 
 For now though I'll just add wordlist that is given to us by Portswigger Academy.
 
@@ -74,8 +74,8 @@ For now though I'll just add wordlist that is given to us by Portswigger Academy
 
 Look like we're done - that's it :) Let's Start the Fuzzer!
 
-After the fuzzing has completed, we can analyse the results.  
-As you can see, most of the invalid ones share the same HTTP Code, Size of the Response Body and Size of the Response Header.  
+After the fuzzing has completed, we can analyse the results.
+As you can see, most of the invalid ones share the same HTTP Code, Size of the Response Body and Size of the Response Header.
 
 ![results](https://imgur.com/BvsjIWv.jpg)
 
@@ -98,15 +98,15 @@ Instead, it it support in the [scripting engine](https://github.com/zaproxy/comm
 
 
 
-###  Lab: Username enumeration via response timing NOT WORKING ONE :/ 
+###  Lab: Username enumeration via response timing NOT WORKING ONE :/
 
 You can find this lab [HERE](https://portswigger.net/web-security/authentication/password-based/lab-username-enumeration-via-response-timing)
 
-Let's repeat the process again. 
+Let's repeat the process again.
 
 We know (From the hint) that this lab introduces protection against brute-forcing with blocking IP-Addresses, but that it is easy to bypass
 
-This can be bypassed by adding the header 
+This can be bypassed by adding the header
 
 ```X-Forwarded-For: 192.168.1.0```
 
@@ -126,7 +126,7 @@ The final Fuzzer window should look like this:
 
 ![window](https://imgur.com/TvfeSes.jpg)
 
-Let's start the fuzzer! 
+Let's start the fuzzer!
 
 It seems though that the fuzzer is not working as We expected, because It iterates the ip-address only after all possible usernames were fuzzed already - which results in blocking our ip before even 5 attempts were made.
 
@@ -140,7 +140,7 @@ However if someone would dwell deep into ZAP scripting, then it could become a g
 
 ## UPDATE - A Great Extension to Burp Suite Community (Free) - Turbo Intruder
 
-You can also check out the [Turbo Intruder Extension](https://portswigger.net/research/turbo-intruder-embracing-the-billion-request-attack).   
-With it though, you also need to dwell deep into scripting - but these concepts are not that complicated, seriously!  
+You can also check out the [Turbo Intruder Extension](https://portswigger.net/research/turbo-intruder-embracing-the-billion-request-attack).
+With it though, you also need to dwell deep into scripting - but these concepts are not that complicated, seriously!
 
 This extension omits the time limit of fuzzing to a normal, even 20 request sent per second. I really recommend that also!
