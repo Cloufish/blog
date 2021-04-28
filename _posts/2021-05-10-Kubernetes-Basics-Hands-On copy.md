@@ -1,6 +1,6 @@
 ---
 title: Basics of Kubernetes (Hands-On Experience)
-date: 2021-05-05 06:46:00 +0100
+date: 2021-05-10 06:46:00 +0100
 categories: [DevSecOps, Kubernetes]
 tags: [devsecops, kubernetes, containers]
 lang: en
