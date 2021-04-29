@@ -309,6 +309,6 @@ git config --global credential.helper 'cache --timeout 14400'
 
 ## Caveats:
 
-- We've used a default secrets path called ```secret/github```. I've done that because I don't see (yet!) another use-case of Hashicorp Vault on my daily basis workflow. However, If I had to manage more secrets and more API keys I would probably in some way diverse these into different categories. You can do that also.
+- We've used a default secrets path called ```secret/github```. I've done that because I don't see (yet!) another use-case of Hashicorp Vault on my daily basis workflow. However, If I had to manage more secrets and more API keys I would probably diverse these tokens to different profiles.
 
 **That's it!** It was seriously a long struggle for me, I personally encountered many issues with setting this up, and though It may not be perfect having vault implemented feels so satisfying! I hope you've also learned something and because that scenario is meant to run only locally maybe you'll do the setup yourself :) Cheers.
