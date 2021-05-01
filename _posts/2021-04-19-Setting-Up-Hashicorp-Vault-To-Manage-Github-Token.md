@@ -68,8 +68,7 @@ After executing this command, we'll see an important information for further con
 
 ## #3 Assigning $VAULT_TOKEN and $VAULT_ADDR
 We need to overwrite these tokens with commands:
-```export VAULT_ADDR='http://127.0.0.1:8200'```
-```VAULT_TOKEN="<ROOT_TOKEN_HERE>"```  
+```export VAULT_ADDR='http://127.0.0.1:8200'``` and also your token with ```export VAULT_TOKEN="<ROOT_TOKEN_HERE>"```  
 Hashicorp ```vault``` command uses its own API, If we wouldn't assign the $VAULT_ADDR, then every API request would be done with **https** protocol. Every request like that won't work, because we only run localhost environment with **http** protocol
 ![error](https://imgur.com/tZKUoiB.png)
 ## #4 Logging in to vault
