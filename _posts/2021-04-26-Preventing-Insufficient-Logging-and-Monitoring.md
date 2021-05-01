@@ -152,10 +152,8 @@ Often refers to replacing the UUID with the random value. To achieve this result
 ## Available Solutions
 - [OWASP AppSensor](http://appsensor.org/)
 - [OWASP ModSecurity (Open-Source WebApp firewall)](https://owasp.org/www-project-modsecurity-core-rule-set/)
-- [ELK Stack (Elastic Searchn Logstash, Kibana)](https://www.elastic.co/what-is/elk-stack)
-
-- Security Event Management - To analyze log and event data
-- Security Information Management (SIM) - To manage them
+- [ELK Stack (Elastic Search, Logstash, Kibana)](https://www.elastic.co/what-is/elk-stack)
+- Security Information Event Management (SIEM) - To manage them
 
 ## Testing, Testing, Testing!
 - Observe alerts
