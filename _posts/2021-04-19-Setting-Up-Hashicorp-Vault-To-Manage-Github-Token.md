@@ -241,6 +241,7 @@ We don't need to do everything described in this blog. There are little to no st
 
 1. Open the file ```/usr/lib/systemd/system/vault.service```
 and see the contents of it:
+
 ```
 [Unit]
 Description=Vault server
@@ -264,8 +265,8 @@ StartLimitBurst=3
 
 [Install]
 WantedBy=multi-user.target
-
 ```
+
 We want to replace the existing ```/etc/vault.hcl``` file with our config. with
 
 ```sudo cp <PATH_TO_OUR_CONFIG> /etc/vault.hcl```
