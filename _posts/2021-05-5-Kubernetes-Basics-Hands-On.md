@@ -1,6 +1,6 @@
 ---
-title: Basics of Kubernetes Part 2 (Hands-On Experience)
-date: 2021-05-05 06:46:00 +0100
+title: Basics of Kubernetes (Hands-On Experience)
+date: 2021-05-10 06:46:00 +0100
 categories: [DevSecOps, Kubernetes]
 tags: [devsecops, kubernetes, containers]
 lang: en
@@ -99,7 +99,7 @@ spec:
         - containerPort: 27017
 
 ```
-**Let's analyze this file more in depth.** I think It'll help us write Manifests by ourselves
+**Let's analyze this file more in depth.** I think It'll help us write Manifests by ourselves.
 
 >1> ```apiVersion: apps/v1``` - That's easy to deduct, the API we use is from the **apps group**, and we use its v1
 
@@ -180,7 +180,7 @@ Why is ```spec``` object used two times? **The first time we used it to label ou
 
 The ```spec``` object format is not so consistent across other K8s objects, as we read the [API docs - kubernetes-objects](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/)
 
->The precise format of the object ```spec``` is different for every Kubernetes object, and contains nested fields specific to that object. The Kubernetes API Reference can help you find the ```spec``` format for all of the objects you can create using Kubernetes. For example, the ```spec``` format for a Pod can be found in PodSpec v1 core, and the spec format for a Deployment can be found in DeploymentSpec v1 apps.
+>The precise format of the object ```spec``` is different for every Kubernetes object, and contains nested fields specific to that object. The Kubernetes API Reference can help you find the ```spec``` format for all the objects you can create using Kubernetes. For example, the ```spec``` format for a Pod can be found in PodSpec v1 core, and the spec format for a Deployment can be found in DeploymentSpec v1 apps.
 
 **Okay, back to deploying our app!!!**
 
@@ -202,7 +202,7 @@ mongo-75f59d57f4-8kjp2   1/1     Running   0          93s
 ```
 So our Deployment Controller is running!
 
-Now Lets create the **MongoDB Service**, with very similar steps:
+Now Let's create the **MongoDB Service**, with very similar steps:
 1. Copying this yml content:
 ```yml
 apiVersion: v1
@@ -241,5 +241,5 @@ And If you've done everything the docs specified, your WebApp will be running
 >I know that there were little to no work from my part, looks like these docs have everything explained, which is amazing!
 
 ### Conclusions with Guestbook
-- Writing Manifests in ```.yml``` format is essential, that's basically the main part of configuring the services in K8s. The best way to learn it is of course by writing them and analyzing more complex ones, for different ```kind:``` objects
+- Writing Manifests in ```.yml``` format is essential, that's basically the main part of configuring the services in K8s. The best way to learn it is of course by writing them and analyzing more complex ones, for different ```kind:``` objects.
 

@@ -68,9 +68,7 @@ After executing this command, we'll see an important information for further con
 
 ## #3 Assigning $VAULT_TOKEN and $VAULT_ADDR
 We need to overwrite these tokens with commands:
-```export VAULT_ADDR='http://127.0.0.1:8200'```
-```VAULT_TOKEN="<ROOT_TOKEN_HERE>"```
-
+```export VAULT_ADDR='http://127.0.0.1:8200'``` and also your token with ```export VAULT_TOKEN="<ROOT_TOKEN_HERE>"```  
 Hashicorp ```vault``` command uses its own API, If we wouldn't assign the $VAULT_ADDR, then every API request would be done with **https** protocol. Every request like that won't work, because we only run localhost environment with **http** protocol
 ![error](https://imgur.com/tZKUoiB.png)
 ## #4 Logging in to vault
@@ -243,6 +241,7 @@ We don't need to do everything described in this blog. There are little to no st
 
 1. Open the file ```/usr/lib/systemd/system/vault.service```
 and see the contents of it:
+
 ```
 [Unit]
 Description=Vault server
@@ -266,8 +265,8 @@ StartLimitBurst=3
 
 [Install]
 WantedBy=multi-user.target
-
 ```
+
 We want to replace the existing ```/etc/vault.hcl``` file with our config. with
 
 ```sudo cp <PATH_TO_OUR_CONFIG> /etc/vault.hcl```
@@ -309,6 +308,6 @@ git config --global credential.helper 'cache --timeout 14400'
 
 ## Caveats:
 
-- We've used a default secrets path called ```secret/github```. I've done that because I don't see (yet!) another use-case of Hashicorp Vault on my daily basis workflow. However, If I had to manage more secrets and more API keys I would probably in some way diverse these into different categories. You can do that also.
+- We've used a default secrets path called ```secret/github```. I've done that because I don't see (yet!) another use-case of Hashicorp Vault on my daily basis workflow. However, If I had to manage more secrets and more API keys I would probably diverse these tokens to different profiles.
 
 **That's it!** It was seriously a long struggle for me, I personally encountered many issues with setting this up, and though It may not be perfect having vault implemented feels so satisfying! I hope you've also learned something and because that scenario is meant to run only locally maybe you'll do the setup yourself :) Cheers.

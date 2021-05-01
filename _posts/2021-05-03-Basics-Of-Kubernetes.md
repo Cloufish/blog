@@ -1,6 +1,6 @@
 ---
-title: Basics of Kubernetes Part 1
-date: 2021-04-28 06:46:00 +0100
+title: Basics of Kubernetes (Without Hands-on Practice)
+date: 2021-05-03 06:46:00 +0100
 categories: [DevSecOps, Kubernetes]
 tags: [devsecops, kubernetes, containers]
 lang: en
@@ -16,7 +16,7 @@ It's a way of orchestrating containers...
 - It's made by Google
 - While being still open-source project
 - Stable and mature, even though one of its first version was back in 2015!
-- It's shortened name is K8s - pronuncation of this is "Keights" (I know this may not be accurate pronuncation to interpret)
+- It's shortened name is K8s - pronunciation of this is "Keights" (I know this may not be accurate pronunciation to interpret)
 
 ## Why we use it:
 - To manage containers and microservices of course,
@@ -77,7 +77,7 @@ I know it does sound complicated, but hang on! As you read this blog-post, write
 
 **Multi-master Control Plane** - Concept stands for splitting the Control Plane into smaller ones which would be responsible for a **particular** failure domains - because sticking them on the same data-center/RACK is definitely **not recommended**
 
-**How many Masters to have?** - 3 or 5, but definetely not an even number! (not 2 for example), because if one master fails, the remaining clusters must have a majority! If for example we have 2 masters and one of them fails, then the remaining one master will transform into **read-only mode**
+**How many Masters to have?** - 3 or 5, but definitely not an even number! (not 2 for example), because if one master fails, the remaining clusters must have a majority! If for example we have 2 masters and one of them fails, then the remaining one master will transform into **read-only mode.**
 
 **Active-Passive Multi Master Model** - Where only one master is only actively making changes to the cluster, while other masters reflect/copy what the **leader** master did
 
@@ -87,11 +87,11 @@ Every master runs every **master-component**
 
 **Hosted K8s Control Plane**
 - in Cloud-Hosted Masters are hidden from you
-- Cloud-Provider run your Control Plane **as a service** and you can interact with it with API endpoint
+- Cloud-Provider run your Control Plane **as a service**, and you can interact with it with API endpoint
 
 >**WARNING** - Don't run user or business application on a Master
 
-**kube-apiserver** - is a Front-end to the control plane
+**kube-apiserver** — is a Front-end to the control plane
 - Exposes the API
 - Consumes JSON/Yaml
 
@@ -168,7 +168,7 @@ However, there is a use case of running multi-container Pods, such as:
 - Stuff that shouldn't be done on the App directly, due to security reasons like **Decrypting, Encrypting** traffic over the network, and other networking stuff
 
 Like we said earlier, **Pods do not offer Scalability** by default for them to be scalable, they must be wrapped into a **Deployment** controller, but Pods themselves provide nice meta-data for Kubernetes to work with!
-## Networking with Kubernetes Services
+## Networking with Kubernetes Services.
 
 When new Pods are re-deployed (e.g. after it dies) or after scaling up, or even updating They got assigned a new IP Address, which can be **problematic from Networking** Administrator's perspective
 
