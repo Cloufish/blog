@@ -1,5 +1,5 @@
 ---
-title: Basics of Kubernetes (Without Hands-on Practice)
+title: Basics of Kubernetes Part 1
 date: 2021-04-28 06:46:00 +0100
 categories: [DevSecOps, Kubernetes]
 tags: [devsecops, kubernetes, containers]

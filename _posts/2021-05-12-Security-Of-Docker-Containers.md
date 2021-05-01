@@ -112,7 +112,7 @@ There are few things to consider here:
 This is a bad practice, because an attacker might set up shared folders to your **root directory** ```/```
 Then from the app/container context it could modify your host filesystem without any obstacles, e.g. create a new - more vulnerable container.
 
-
+He could for example interact with Docker daemon socket in ```/var/run/docker.sock``` With that, the attacker would have a full control of the host machine.
 
 ## Don't configure a service blindly before getting to know it better
 
@@ -134,11 +134,49 @@ But the default set of capabilities may still not provide full isolation of the 
 
 But **beware with adding new capabilities**, make sure the capability is 100% needed for the application to run properly.
 
+## Running docker images with ```-privileged``` flag
+
+**do not run docker images with ```-privileged``` flag!**
+
+Instead, run it with ```–no-new-privileges```
 ## Not keeping our images up-to-date
 
 This goes without saying, having updates also provide us with security patches of the applications, cmdline tools our container needs.
 
 This though should not mean running always image with ```:latest``` tag, because it can bring on other issues with Availability. More on that on [derick's blog-post](https://derickbailey.com/2017/05/10/never-use-the-latest-image-from-docker-hub/)
+
+## Not disabling inter-container communication.
+
+It can be done with ```--icc=false```
+
+By default it is enabled, meaning that all containers can talk with each other using ```docker0 bridged network```
+
+If some containers need communication, they can be specified with
+```--link=CONTAINER_NAME_or_ID:ALIAS```
+
+## Not limiting DoS attacks.
+
+Docker daemon assigns resources if needed automatically, which is a good thing, but in the DoS attack scenario, the Docker daemon will request too much RAM and CPU than a Host machine can provide, resulting in killing/restarting the process on Host by the kernel.
+
+
+It can be done with limiting container's access to memory with the ```--memory=``` flag,
+```--memory-swap```
+
+Also, We can limit maximum number of restarts with
+
+```--restart=on-failure:<number_of_restarts>```
+
+flag
+and maximum number of processes with
+
+ ```--ulimit nproc=<number>```
+
+## Not setting filesystem and volumes to read-only.
+
+Can be done with
+```--read-only``` flag when performing ```docker run```.
+
+If it has to save something, we can use ```--tmpfs /tmp``` flag with /tmp directory.
 
 ## Not signing an image
 If someone happens to get to the Host OS some way, **We should sign our container images** to prevent them from tampering with this image and modifying its behavior
@@ -156,5 +194,10 @@ E.g. with Prometheus
 ### Security of Container Orchestration
 More on that in a future blog-post
 
+## References
+The knowledge I provide here is not mine of course, the best resources that I found valuable were:
+- [OWASP Docker Security Docs](https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html)
+- [DevOps Directive's awesome video!](https://www.youtube.com/watch?v=JE2PJbbpjsM)
+- [Docker Security Docs](https://docs.docker.com/engine/security/)
 ## Summary
 Docker containers are mostly secure-by-default, but We shouldn't underestimate the importance of Host system where they are being run, and also the importance of stripping these images even more like we would do with ```distroless``` concept.
