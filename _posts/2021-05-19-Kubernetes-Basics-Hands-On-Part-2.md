@@ -1,5 +1,5 @@
 ---
-title: Basics of Kubernetes Part 3
+title: Basics of Kubernetes Part 2
 date: 2021-05-05 06:46:00 +0100
 categories: [DevSecOps, Kubernetes]
 tags: [devsecops, kubernetes, containers]
