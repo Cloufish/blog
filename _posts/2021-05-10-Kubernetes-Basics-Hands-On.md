@@ -11,7 +11,7 @@ A command-line tool to access the K8s API Server
 
 ### Installation
 
-[Here're the docs to guide you with installation](https://kubernetes.io/docs/tasks/tools/)
+[Here are the docs to guide you with installation](https://kubernetes.io/docs/tasks/tools/)
 
 On my host machine, I only run
   ```sudo pacman -Syu kubectl```
