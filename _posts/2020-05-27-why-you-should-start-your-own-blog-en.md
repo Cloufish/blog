@@ -23,7 +23,7 @@ You're doing a collection of your reflections on various topics. You have a chan
   You will also improve your **writing skills**.
   > I think I'm not great at it, but I will get into practice :)
 
-### Don't think you are not a knowledgeable person. This is absurd!
+### Don't think you are not a knowledgeable person. That is absurd!
 Because the truth is, there will always be someone who knows less than you. Someone who has 3 *weeks* of experience on a broader topic while you have 3* months* of experience behind you. *
 
 ### Creating a blog is not that difficult, and It does not risk being hacked
