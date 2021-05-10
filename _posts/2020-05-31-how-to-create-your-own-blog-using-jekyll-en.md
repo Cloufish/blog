@@ -42,7 +42,7 @@ When we manage to choose a theme, we enter its project in GitHub and fork it to 
 Now it remains for us to clone the project from our repository
 ``` git clone https://github.com/<our-username>/<our-repository>.git ```
 
-## STEP 2 - Let's make friends with the file structure
+## STEP 2 - Get familiar with the file structure
 
 ```
 ├── _date
