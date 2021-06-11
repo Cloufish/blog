@@ -44,7 +44,7 @@ social:
     - https://github.com/Cloufish       # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-     - https://www.linkedin.com/in/cloufish
+    - https://www.linkedin.com/in/cloufish
 
 google_site_verification: google_meta_tag_verification # change to your verification string
 # --------------------------
