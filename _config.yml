@@ -14,7 +14,7 @@ lang: en-US
 timezone: Europe/Warsaw
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
-# --------------------------
+# --------------------------a
 title: Cloufish's Blog                          # the main title
 
 tagline: My own internet corner :)   # it will display as the sub-title
@@ -44,7 +44,7 @@ social:
     - https://github.com/Cloufish       # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-     - https://www.linkedin.com/in/cloufish
+    - https://www.linkedin.com/in/cloufish
 
 google_site_verification: google_meta_tag_verification # change to your verification string
 # --------------------------
@@ -55,11 +55,6 @@ google_analytics:
   pv:
     proxy_endpoint:   # fill in the Google Analytics superProxy endpoint of Google App Engine
     cache_path:       # the local PV cache data, friendly to visitors from GFW region
- enabled: false
-    # the next options only valid when `google_analytics.pv` is enabled.
-    proxy_url: ''
-    proxy_endpoint: ''
-    cache: false  # pv data local cache, good for the users from GFW area.
 
 # Prefer color scheme setting.
 #
@@ -72,7 +67,7 @@ google_analytics:
 #     light  - Use the light color scheme
 #     dark   - Use the dark color scheme
 #
-theme_mode: dark
+theme_mode:   dark
 
 # The CDN endpoint for images.
 # Notice that once it is assigned, the CDN url
