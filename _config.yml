@@ -55,11 +55,6 @@ google_analytics:
   pv:
     proxy_endpoint:   # fill in the Google Analytics superProxy endpoint of Google App Engine
     cache_path:       # the local PV cache data, friendly to visitors from GFW region
- enabled: false
-    # the next options only valid when `google_analytics.pv` is enabled.
-    proxy_url: ''
-    proxy_endpoint: ''
-    cache: false  # pv data local cache, good for the users from GFW area.
 
 # Prefer color scheme setting.
 #
@@ -72,7 +67,7 @@ google_analytics:
 #     light  - Use the light color scheme
 #     dark   - Use the dark color scheme
 #
-theme_mode: dark
+theme_mode:   dark
 
 # The CDN endpoint for images.
 # Notice that once it is assigned, the CDN url
@@ -82,7 +77,7 @@ theme_mode: dark
 img_cdn: ''
 
 # the avatar on sidebar, support local or CORS resources
-avatar: avatar.jpg
+avatar: https://cdn.jsdelivr.net/gh/cotes2020/chirpy-images/commons/avatar.jpg
 
 # boolean type, the global switch for ToC in posts.
 toc: true
