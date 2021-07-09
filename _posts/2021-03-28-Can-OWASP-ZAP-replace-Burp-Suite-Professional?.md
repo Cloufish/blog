@@ -8,7 +8,7 @@ lang: en
 
 ## The short answer - NO :)
 
-Burp Suite offers a tremendous scope of functionalities in one his app implementation, it has also funds from the paid version to develop this tool more and more, so I don't think It'll ever be replaced with OWASP ZAP.
+Burp Suite offers a tremendous scope of functionalities in one of his app implementation, it has also funds from the paid version to develop this tool more and more, so I don't think It'll ever be replaced with OWASP ZAP.
 
 ## The question should be - What functionalities of Burp Suite Professional can I have for free?
 
@@ -18,7 +18,7 @@ It is really awesome, I really recommend you checking it out!
 
 But I realized something... that he didn't limit himself only to using Burp Extensions, but he used functionalities outside the Burp Suite program - that might be obvious to some of you, did you really think that there's a free version/alternative of Burp Collaborator other than hosting your own OOB(Out of Band) server? I did not!
 
-These all external functionalities that he has shown, could also be used to **PIMP THE OWASP ZAP TO WORK AS BURP SUITE PRO**
+These all external functionalities that he has shown could also be used to **PIMP THE OWASP ZAP TO WORK AS BURP SUITE PRO**
 
 It is to be honest the same scenario. Because OWASP ZAP offers a free Web-Vulnerabilities-Scanner that in Burp Suite cannot get acquired for free but is also extremely handy!
 
@@ -46,15 +46,15 @@ I've covered the topic of Fuzzing in OWASP ZAP [On My Other Blogpost](https://cl
 
 The final conclusion that I pointed there is that we need to use ZAP's fuzzing [scripts](https://github.com/zaproxy/community-scripts/tree/master/httpfuzzerprocessor), so it's the same case as in Turbo Intruder.
 
-So this section is I think a win for Burp Suite Pro, because nonetheless you would have to learn Python/JS scripting to use it for free.
+So this section is I think a win for Burp Suite Pro because nonetheless, you would have to learn Python/JS scripting to use it for free.
 
 ### Burp Suite Scanner for ZAP
 
-The active scanning capabilities that are in ZAProxy are awesome! I don't want to make statements that these are better than in Burp Suite because I did not use the Scanner of Burp to make a non-biased comparison, but many aspects that makes Burp Scanner great are also in ZAProxy!
+The active scanning capabilities that are in ZAProxy are awesome! I don't want to make statements that these are better than in Burp Suite because I did not use the Scanner of Burp to make a non-biased comparison, but many aspects that make Burp Scanner great are also in ZAProxy!
 
-With many built-in scanning rules you'll probably stumble upon many vulnerabilities that you didn't know they've existed!
+With many built-in scanning rules, you'll probably stumble upon many vulnerabilities that you didn't know they've existed!
 
-ZAP scanner provides a good insight of how requests are constructed, what headers are missing and potentially makes the app vulnerable, how the CORS is configured, Information Disclosures.
+ZAP scanner provides a good insight into how requests are constructed, what headers are missing and potentially make the app vulnerable, how the CORS is configured, Information Disclosures.
 
 ![Scanner](https://imgur.com/cb3UeXU.png)
 
