@@ -134,7 +134,7 @@ It seems though that the fuzzer is not working as We expected, because It iterat
 ## Cons of ZAProxy Fuzzer
 So we can see many cons with, some of them are:
 - Lack of Payload options
-- Many features are only accessible through the [community scripts](https://github.com/zaproxy/community-scripts) of ZAProxy
+- Many features are only accessible through the [community scripts](https://github.com/zaproxy/community-scripts) of ZAProxy, and creating your own [HTTP Fuzzer Processor](https://github.com/zaproxy/community-scripts/tree/main/httpfuzzerprocessor)
 
 However if someone would dwell deep into ZAP scripting, then it could become a great alternative, that would replace Burp Suite Community Edition.
 
