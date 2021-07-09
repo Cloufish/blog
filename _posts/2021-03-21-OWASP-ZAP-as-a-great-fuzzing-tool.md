@@ -24,7 +24,7 @@ This kind of fuzzing is not intuitive **for a beginner** (though great for autom
 
 You're probably familiar with the first one - Burp Suite Intruder. It provides an easy way of selecting inputs to fuzz just like on this picture:
 
-![image](https://portswigger.net/burp/documentation/desktop/images/intruder-enumerating-positions-940.png)
+![image](https://i.imgur.com/ZVCMrjA.png)
 
 The biggest con of this is that it rate-limits all the fuzzing to the slowest way possible - **if you're not using Professional Edition**
 
